@@ -95,8 +95,21 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        {/* Logo */}
-        <a href="/" className="text-lg font-semibold text-gray-800 hover:text-gray-600">
+        {/* Bouton de menu et logo (visible uniquement sur les petits écrans) */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            className="text-gray-800 hover:text-gray-600"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+          <a href="/" className="text-lg font-semibold text-gray-800 hover:text-gray-600">
+            SamuelIrk
+          </a>
+        </div>
+
+        {/* Logo (visible uniquement sur les écrans larges) */}
+        <a href="/" className="hidden md:block text-lg font-semibold text-gray-800 hover:text-gray-600">
           SamuelIrk
         </a>
 
@@ -191,14 +204,6 @@ export function Header() {
           onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
           <Search className="h-5 w-5" />
-        </button>
-
-        {/* Bouton de menu (visible uniquement sur les petits écrans) */}
-        <button
-          className="md:hidden text-gray-800 hover:text-gray-600"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
