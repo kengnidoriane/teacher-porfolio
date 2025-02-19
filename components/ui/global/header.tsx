@@ -1,4 +1,4 @@
-"use client"; // Directive pour indiquer que c'est un composant client
+"use client";
 
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Search, ChevronRight, ArrowLeft } from 'lucide-react';
@@ -47,7 +47,7 @@ export function Header() {
   // Fonction pour ajuster les liens visibles et les liens dans "More" en fonction de la largeur de l'écran
   const updateLinks = () => {
     const screenWidth = window.innerWidth;
-    let maxVisibleLinks = 2; // Par défaut pour 768px à 937px
+    let maxVisibleLinks = 2;
 
     if (screenWidth >= 938 && screenWidth <= 1121) maxVisibleLinks = 3;
     if (screenWidth >= 1122 && screenWidth <= 1236) maxVisibleLinks = 4;
@@ -61,7 +61,6 @@ export function Header() {
     setMoreLinks(mainLinks.slice(maxVisibleLinks));
   };
 
-  // Fonction pour gérer le scroll et changer le background du header
   const handleScroll = () => {
     if (window.scrollY > 50) {
       setScrollBackground(true);
@@ -70,7 +69,6 @@ export function Header() {
     }
   };
 
-  // Mettre à jour les liens lors du chargement et du redimensionnement de la fenêtre
   useEffect(() => {
     updateLinks();
     window.addEventListener('resize', updateLinks);
@@ -81,7 +79,6 @@ export function Header() {
     };
   }, []);
 
-  // Focus sur l'input de recherche lorsque la recherche est ouverte
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
       searchInputRef.current.focus();
@@ -90,12 +87,11 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 px-4 transition-colors duration-300 ${
         scrollBackground || isSearchOpen ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        {/* Bouton de menu et logo (visible uniquement sur les petits écrans) */}
         <div className="md:hidden flex items-center space-x-4">
           <button
             className="text-gray-800 hover:text-gray-600"
@@ -103,7 +99,7 @@ export function Header() {
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <a href="/" className="text-lg font-semibold text-gray-800 hover:text-gray-600">
+          <a href="/" className="text-lg font-semibold text-gray-800 hover:text-gray-800">
             SamuelIrk
           </a>
         </div>
@@ -114,7 +110,7 @@ export function Header() {
         </a>
 
         {/* Menu de navigation (visible sur les écrans larges) */}
-        <nav className="hidden md:flex items-center space-x-4">
+        <nav className="hidden md:flex items-center space-x-8">
           {visibleLinks.map((link, index) => (
             <div key={index} className="relative group">
               <a
@@ -124,7 +120,7 @@ export function Header() {
                   activeLink === link.href ? "border-b-2 border-green-500" : ""
                 }`}
               >
-                {truncateLinkName(link.name, 20)}
+                {truncateLinkName(link.name, 25)}
               </a>
               {link.dropdown && (
                 <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg">
@@ -152,7 +148,7 @@ export function Header() {
                 More
                 <ChevronRight className="h-4 w-4 ml-1 transform group-hover:rotate-90 transition-transform" />
               </button>
-              <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg">
+              <div className="absolute hidden right-0 left-0 group-hover:block w-52 bg-white shadow-md  rounded-lg">
                 {moreLinks.map((link, index) => (
                   <div key={index}>
                     {link.name === "Research" ? (
@@ -246,33 +242,44 @@ export function Header() {
 
       {/* Recherche (s'ouvre en plein écran) */}
       {isSearchOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col items-center justify-center">
-          <div className="flex items-center w-full max-w-md px-4">
-            <button
-              className="text-gray-800 hover:text-gray-600 mr-4"
-              onClick={() => setIsSearchOpen(false)}
-            >
-              <ArrowLeft className="h-5 w-5" />
-            </button>
-            <input
-              type="text"
-              ref={searchInputRef}
-              placeholder="Search..."
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-            <button className="text-gray-800 hover:text-gray-600 ml-4">
-              <Search className="h-5 w-5" />
-            </button>
+        <>
+          {/* Arrière-plan flou */}
+          <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40" onClick={() => setIsSearchOpen(false)}></div>
+
+          {/* Fenêtre de recherche */}
+          <div className="fixed top-0 left-0 w-full bg-white z-50 flex flex-col items-center rounded-b-lg shadow-lg">
+            <div className="flex items-center justify-center w-full px-4 py-2 relative">
+              {/* Flèche de retour à l'extrême gauche */}
+              <button
+                className="text-gray-800 hover:text-gray-600 absolute left-4"
+                onClick={() => setIsSearchOpen(false)}
+              >
+                <ArrowLeft className="h-5 w-5" />
+              </button>
+
+              {/* Champ de recherche centré */}
+              <div className="w-1/2 gap-4 py-2 border flex items-center justify-start border-gray-300 rounded-lg focus:ring-green-500">
+                <button className="text-gray-800 hover:text-gray-600 ml-4">
+                  <Search className="h-5 w-5" />
+                </button>
+                <input
+                  type="text"
+                  ref={searchInputRef}
+                  placeholder="Search..."
+                  className='outline-none focus:outline-none border-none flex-grow'
+                />
+              </div>
+            </div>
+
+            {/* Résultats de la recherche (à implémenter) */}
+            <div className="mt-4 w-full px-4 pb-4">
+              <div className="text-gray-800">Search results will appear here.</div>
+            </div>
           </div>
-          {/* Résultats de la recherche (à implémenter) */}
-          <div className="mt-4 w-full max-w-md px-4">
-            {/* Placeholder pour les résultats de la recherche */}
-            <div className="text-gray-800">Search results will appear here.</div>
-          </div>
-        </div>
+        </>
       )}
 
-      {/* Flou sur le reste de l'écran lorsque la recherche est ouverte */}
+
       {isSearchOpen && <div className="fixed inset-0 bg-black bg-opacity-50 z-40"></div>}
     </header>
   );
