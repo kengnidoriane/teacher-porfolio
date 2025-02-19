@@ -248,9 +248,10 @@ export function Header() {
 
           {/* Fenêtre de recherche */}
           <div className="fixed top-0 left-0 w-full bg-white z-50 flex flex-col items-center rounded-b-lg shadow-lg">
-            <div className="flex items-center justify-center w-full px-4 py-2 relative">
+            <div className="flex items-center justify-center w-full px-4 py-5 relative">
               {/* Flèche de retour à l'extrême gauche */}
               <button
+                title='Retour au site'
                 className="text-gray-800 hover:text-gray-600 absolute left-4"
                 onClick={() => setIsSearchOpen(false)}
               >
