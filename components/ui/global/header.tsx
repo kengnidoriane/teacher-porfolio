@@ -1,13 +1,13 @@
 "use client";
-
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Search, ChevronRight, ArrowLeft } from 'lucide-react';
+import Link from 'next/link';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
-  const [visibleLinks, setVisibleLinks] = useState<any[]>([]);
-  const [moreLinks, setMoreLinks] = useState<any[]>([]);
+  const [visibleLinks, setVisibleLinks] = useState<object[]>([]);
+  const [moreLinks, setMoreLinks] = useState<string[]>([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isResearchDropdownOpen, setIsResearchDropdownOpen] = useState(false);
   const [scrollBackground, setScrollBackground] = useState(false);
@@ -99,21 +99,21 @@ export function Header() {
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <a href="/" className="text-lg font-semibold text-gray-800 hover:text-gray-800">
+          <Link href="/" className="text-lg font-semibold text-gray-800 hover:text-gray-800">
             SamuelIrk
-          </a>
+          </Link>
         </div>
 
         {/* Logo (visible uniquement sur les écrans larges) */}
-        <a href="/" className="hidden md:block text-lg font-semibold text-gray-800 hover:text-gray-600">
+        <Link href="/" className="hidden md:block text-lg font-semibold text-gray-800 hover:text-gray-600">
           SamuelIrk
-        </a>
+        </Link>
 
         {/* Menu de navigation (visible sur les écrans larges) */}
         <nav className="hidden md:flex items-center space-x-8">
           {visibleLinks.map((link, index) => (
             <div key={index} className="relative group">
-              <a
+              <Link
                 href={link.href}
                 onClick={() => handleLinkClick(link.href)}
                 className={`text-gray-800 hover:text-gray-600 whitespace-nowrap ${
@@ -121,7 +121,7 @@ export function Header() {
                 }`}
               >
                 {truncateLinkName(link.name, 25)}
-              </a>
+              </Link>
               {link.dropdown && (
                 <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg">
                   {link.dropdown.map((subLink: any, subIndex: number) => (
