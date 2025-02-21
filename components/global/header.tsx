@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Search, ChevronRight, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import data from '@/data/data.json';
 
 interface Link {
   name: string;
@@ -19,26 +20,7 @@ export function Header() {
   const [scrollBackground, setScrollBackground] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const researchLinks : Link[] = [
-    { name: "Patent", href: "#" },
-    { name: "Journal Publications", href: "#" },
-    { name: "Book/Chapter Publications", href: "#" },
-    { name: "Conferences Publications", href: "#" },
-    { name: "PhD Scholar Details", href: "#" },
-  ];
-
-  const mainLinks : Link[] = [
-    { name: "Home", href: "#" },
-    { name: "Academic & Technical Experience", href: "#" },
-    { name: "Development and Launch of New Courses", href: "#" },
-    { name: "Awards & Recognition", href: "#" },
-    { name: "Research", href: "#", dropdown: researchLinks },
-    { name: "Fundings", href: "#" },
-    { name: "International Collaboration", href: "#" },
-    { name: "Resource Person", href: "#" },
-    { name: "Events & Programs Photos", href: "#" },
-    { name: "Information", href: "#" },
-  ];
+  const mainLinks : Link[] = data.header.mainLinks
 
   // Fonction pour tronquer les noms de liens trop longs
   const truncateLinkName = (name: string, maxLength: number) => {

@@ -1,0 +1,19 @@
+{
+    "header": {
+      "mainLinks": [
+        { "name": "Home", "href": "#" },
+        { "name": "Academic & Technical Experience", "href": "#" },
+        { "name": "Development and Launch of New Courses", "href": "#" },
+        { "name": "Awards & Recognition", "href": "#" },
+        { "name": "Research", "href": "#", "dropdown": [
+          { "name": "Patent", "href": "#" },
+          { "name": "Journal Publications", "href": "#" }
+        ]},
+        { "name": "Fundings", "href": "#" },
+        { "name": "International Collaboration", "href": "#" },
+        { "name": "Resource Person", "href": "#" },
+        { "name": "Events & Programs Photos", "href": "#" },
+        { "name": "Information", "href": "#" }
+      ]
+    }
+  }
