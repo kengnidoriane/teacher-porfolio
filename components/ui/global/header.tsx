@@ -3,17 +3,23 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, Search, ChevronRight, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
+interface Link {
+  name: string;
+  href: string;
+  dropdown?: Link[]; // Optionnel, si certains liens ont des sous-liens
+}
+
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeLink, setActiveLink] = useState<string | null>(null);
-  const [visibleLinks, setVisibleLinks] = useState<object[]>([]);
-  const [moreLinks, setMoreLinks] = useState<string[]>([]);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isResearchDropdownOpen, setIsResearchDropdownOpen] = useState(false);
-  const [scrollBackground, setScrollBackground] = useState(false);
+  const [visibleLinks, setVisibleLinks] = useState<Link[]>([]);
+  const [moreLinks, setMoreLinks] = useState<Link[]>([]);
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isResearchDropdownOpen, setIsResearchDropdownOpen] = useState<boolean>(false);
+  const [scrollBackground, setScrollBackground] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  const researchLinks = [
+  const researchLinks : Link[] = [
     { name: "Patent", href: "#" },
     { name: "Journal Publications", href: "#" },
     { name: "Book/Chapter Publications", href: "#" },
@@ -21,7 +27,7 @@ export function Header() {
     { name: "PhD Scholar Details", href: "#" },
   ];
 
-  const mainLinks = [
+  const mainLinks : Link[] = [
     { name: "Home", href: "#" },
     { name: "Academic & Technical Experience", href: "#" },
     { name: "Development and Launch of New Courses", href: "#" },
@@ -124,7 +130,7 @@ export function Header() {
               </Link>
               {link.dropdown && (
                 <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg">
-                  {link.dropdown.map((subLink: any, subIndex: number) => (
+                  {link.dropdown.map((subLink: Link, subIndex: number) => (
                     <a
                       key={subIndex}
                       href={subLink.href}
@@ -161,7 +167,7 @@ export function Header() {
                         </button>
                         {isResearchDropdownOpen && (
                           <div className="ml-4">
-                            {link.dropdown.map((subLink: any, subIndex: number) => (
+                            {link.dropdown?.map((subLink: Link, subIndex: number) => (
                               <a
                                 key={subIndex}
                                 href={subLink.href}
@@ -220,7 +226,7 @@ export function Header() {
                 </a>
                 {link.dropdown && (
                   <div className="ml-4 mt-2">
-                    {link.dropdown.map((subLink: any, subIndex: number) => (
+                    {link.dropdown.map((subLink: Link, subIndex: number) => (
                       <a
                         key={subIndex}
                         href={subLink.href}
