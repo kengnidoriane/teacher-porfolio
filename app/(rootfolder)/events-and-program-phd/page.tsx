@@ -1,7 +1,10 @@
+import { SectionHeader } from "@/components/global"
 
 const EventsAndProgram  = () => {
   return (
-    <div>EventsAndProgram</div>
+    <>
+      <SectionHeader title="Events & Programs Photos" />
+    </>
   )
 }
 

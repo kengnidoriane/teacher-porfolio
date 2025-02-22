@@ -1,7 +1,10 @@
+import { SectionHeader } from "@/components/global"
 
 const Fundings  = () => {
   return (
-    <div>Fundings</div>
+    <>
+      <SectionHeader title="Fundings" />
+    </>
   )
 }
 

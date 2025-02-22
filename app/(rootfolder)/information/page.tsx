@@ -1,7 +1,10 @@
+import { SectionHeader } from "@/components/global"
 
 const Information  = () => {
   return (
-    <div>Information</div>
+    <>
+      <SectionHeader title="Professional & general information" />
+    </>
   )
 }
 
