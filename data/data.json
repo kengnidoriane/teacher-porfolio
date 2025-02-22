@@ -6,8 +6,11 @@
         { "name": "Development and Launch of New Courses", "href": "/development-and-launch-of-new-courses" },
         { "name": "Awards & Recognition", "href": "/awards-and-recognition" },
         { "name": "Research", "href": "/research", "dropdown": [
-          { "name": "Patent", "href": "/patent" },
-          { "name": "Journal Publications", "href": "/journal-publications" }
+          { "name": "Patent", "href": "/research/patent" },
+          { "name": "Journal Publications", "href": "/research/journal-publications" },
+          { "name": "Book / Chapter Publication", "href": "/research/book-chapter-publication" },
+          { "name": "Conference Publications", "href": "/research/conference-publications" },
+          { "name": "Phd Scholar details", "href": "/research/phd-scholar-details" }
         ]},
         { "name": "Fundings", "href": "/fundings" },
         { "name": "International Collaboration", "href": "/international-collaboration" },
