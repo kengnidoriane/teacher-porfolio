@@ -99,8 +99,8 @@ export function Header() {
 
         {/* Menu de navigation (visible sur les écrans larges) */}
         <nav className="hidden md:flex items-center space-x-8">
-          {visibleLinks.map((link, index) => (
-            <div key={index} className="relative group">
+          {visibleLinks.map((link) => (
+            <div key={link.name} className="relative group">
               <Link
                 href={link.href}
                 onClick={() => handleLinkClick(link.href)}
@@ -112,9 +112,9 @@ export function Header() {
               </Link>
               {link.dropdown && (
                 <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg">
-                  {link.dropdown.map((subLink: Link, subIndex: number) => (
+                  {link.dropdown.map((subLink: Link,) => (
                     <a
-                      key={subIndex}
+                      key={subLink.name}
                       href={subLink.href}
                       onClick={() => handleLinkClick(subLink.href)}
                       className={`block px-4 py-2 text-gray-800 hover:bg-gray-100 ${
@@ -137,8 +137,8 @@ export function Header() {
                 <ChevronRight className="h-4 w-4 ml-1 transform group-hover:rotate-90 transition-transform" />
               </button>
               <div className="absolute hidden right-0 left-0 group-hover:block w-52 bg-white shadow-md  rounded-lg">
-                {moreLinks.map((link, index) => (
-                  <div key={index}>
+                {moreLinks.map((link) => (
+                  <div key={link.name}>
                     {link.name === "Research" ? (
                       <div>
                         <button
@@ -149,9 +149,9 @@ export function Header() {
                         </button>
                         {isResearchDropdownOpen && (
                           <div className="ml-4">
-                            {link.dropdown?.map((subLink: Link, subIndex: number) => (
+                            {link.dropdown?.map((subLink: Link) => (
                               <a
-                                key={subIndex}
+                                key={subLink.name}
                                 href={subLink.href}
                                 onClick={() => handleLinkClick(subLink.href)}
                                 className={`block px-4 py-2 text-gray-800 hover:bg-gray-100 ${
@@ -195,8 +195,8 @@ export function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-md">
           <nav className="flex flex-col space-y-2 p-4">
-            {mainLinks.map((link, index) => (
-              <div key={index}>
+            {mainLinks.map((link) => (
+              <div key={link.name}>
                 <a
                   href={link.href}
                   onClick={() => handleLinkClick(link.href)}
@@ -208,9 +208,9 @@ export function Header() {
                 </a>
                 {link.dropdown && (
                   <div className="ml-4 mt-2">
-                    {link.dropdown.map((subLink: Link, subIndex: number) => (
+                    {link.dropdown.map((subLink: Link) => (
                       <a
-                        key={subIndex}
+                        key={link.name}
                         href={subLink.href}
                         onClick={() => handleLinkClick(subLink.href)}
                         className={`block text-gray-800 hover:text-gray-600 ${
