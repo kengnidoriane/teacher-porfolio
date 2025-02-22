@@ -113,7 +113,7 @@ export function Header() {
               {link.dropdown && (
                 <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-lg">
                   {link.dropdown.map((subLink: Link,) => (
-                    <a
+                    <Link
                       key={subLink.name}
                       href={subLink.href}
                       onClick={() => handleLinkClick(subLink.href)}
@@ -122,7 +122,7 @@ export function Header() {
                       }`}
                     >
                       {subLink.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -150,7 +150,7 @@ export function Header() {
                         {isResearchDropdownOpen && (
                           <div className="ml-4">
                             {link.dropdown?.map((subLink: Link) => (
-                              <a
+                              <Link
                                 key={subLink.name}
                                 href={subLink.href}
                                 onClick={() => handleLinkClick(subLink.href)}
@@ -159,13 +159,13 @@ export function Header() {
                                 }`}
                               >
                                 {subLink.name}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         )}
                       </div>
                     ) : (
-                      <a
+                      <Link
                         href={link.href}
                         onClick={() => handleLinkClick(link.href)}
                         className={`block px-4 py-2 text-gray-800 hover:bg-gray-100 ${
@@ -173,7 +173,7 @@ export function Header() {
                         }`}
                       >
                         {link.name}
-                      </a>
+                      </Link>
                     )}
                   </div>
                 ))}
@@ -197,7 +197,7 @@ export function Header() {
           <nav className="flex flex-col space-y-2 p-4">
             {mainLinks.map((link) => (
               <div key={link.name}>
-                <a
+                <Link
                   href={link.href}
                   onClick={() => handleLinkClick(link.href)}
                   className={`text-gray-800 hover:text-gray-600 ${
@@ -205,11 +205,11 @@ export function Header() {
                   }`}
                 >
                   {truncateLinkName(link.name, 20)}
-                </a>
+                </Link>
                 {link.dropdown && (
                   <div className="ml-4 mt-2">
                     {link.dropdown.map((subLink: Link) => (
-                      <a
+                      <Link
                         key={link.name}
                         href={subLink.href}
                         onClick={() => handleLinkClick(subLink.href)}
@@ -218,7 +218,7 @@ export function Header() {
                         }`}
                       >
                         {subLink.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
