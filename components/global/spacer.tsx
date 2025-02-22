@@ -17,6 +17,6 @@ const spacerSizes: Record<SpacerSize, string> = {
   "2xl": "h-16 sm:h-24",
 }
 
-export function Spacer({ size = "md", className }: SpacerProps) {
+export function Spacer({ size = "md", className }: Readonly<SpacerProps>) {
   return <div className={cn(spacerSizes[size], className)} aria-hidden="true" />
 }

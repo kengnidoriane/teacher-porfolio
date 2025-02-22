@@ -2,18 +2,18 @@
     "header": {
       "mainLinks": [
         { "name": "Home", "href": "#" },
-        { "name": "Academic & Technical Experience", "href": "#" },
-        { "name": "Development and Launch of New Courses", "href": "#" },
-        { "name": "Awards & Recognition", "href": "#" },
-        { "name": "Research", "href": "#", "dropdown": [
-          { "name": "Patent", "href": "#" },
-          { "name": "Journal Publications", "href": "#" }
+        { "name": "Academic & Technical Experience", "href": "/academic-technical-experience" },
+        { "name": "Development and Launch of New Courses", "href": "/development-and-launch-of-new-courses" },
+        { "name": "Awards & Recognition", "href": "/awards-and-recognition" },
+        { "name": "Research", "href": "/research", "dropdown": [
+          { "name": "Patent", "href": "/patent" },
+          { "name": "Journal Publications", "href": "/journal-publications" }
         ]},
-        { "name": "Fundings", "href": "#" },
-        { "name": "International Collaboration", "href": "#" },
-        { "name": "Resource Person", "href": "#" },
-        { "name": "Events & Programs Photos", "href": "#" },
-        { "name": "Information", "href": "#" }
+        { "name": "Fundings", "href": "/fundings" },
+        { "name": "International Collaboration", "href": "/international-collaboration" },
+        { "name": "Resource Person", "href": "/resource-person" },
+        { "name": "Events & Programs Photos", "href": "/events-and-programs-photos" },
+        { "name": "Information", "href": "/information" }
       ]
     }
   }
