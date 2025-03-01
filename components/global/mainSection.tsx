@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown'
-import dataMd from '@/data/data.md'
+import datamd from '@/data/datamd.json'
 
 export function MainSection() {
   return (
