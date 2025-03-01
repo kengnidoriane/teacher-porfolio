@@ -1,0 +1,55 @@
+[
+  {
+    "type": "heading",
+    "level": 1,
+    "content": "Titre Principal (h1)"
+  },
+  {
+    "type": "paragraph",
+    "content": "Ceci est un paragraphe d'introduction avec un **texte en gras** et un *texte en italique*. Le convertisseur ignorera le formatage Markdown mais conservera le texte brut."
+  },
+  {
+    "type": "heading",
+    "level": 2,
+    "content": "Sous-titre (h2)"
+  },
+  {
+    "type": "list-item",
+    "content": "Élément de liste 1\r"
+  },
+  {
+    "type": "list-item",
+    "content": "Élément de liste 2\r"
+  },
+  {
+    "type": "paragraph",
+    "content": "- Sous-élément (non pris en charge)"
+  },
+  {
+    "type": "list-item",
+    "content": "Dernier élément de liste\r"
+  },
+  {
+    "type": "paragraph",
+    "content": "Un paragraphe avec plusieurs lignes vides et retours à la ligne manuels."
+  },
+  {
+    "type": "code",
+    "language": "javascript",
+    "content": "function exemple() {\r\n  console.log('Bloc de code JavaScript');\r\n  // Commentaire\r\n}\r"
+  },
+  {
+    "type": "code",
+    "language": "python",
+    "content": "def hello_world():\r\n    print(\"Bloc de code Python\")\r"
+  },
+  {
+    "type": "heading",
+    "level": 2,
+    "content": "Structure complexe"
+  },
+  {
+    "type": "paragraph",
+    "content": "Texte mélangé avec `code en ligne` et éléments divers."
+  }
+]
