@@ -1,13 +1,11 @@
 import { MainSection, SectionHeader } from "@/components/global"
 
-const AcademicTechnicalExperience  = () => {
+const AcademicTechnicalExperience = () => {
   return (
     <>
-    <SectionHeader title="Academic & Technical Experience" />
-    {/* others sections */}
-    <MainSection/>
+      <SectionHeader title="Academic & Technical Experience" />
+      <MainSection />
     </>
-
   )
 }
 
