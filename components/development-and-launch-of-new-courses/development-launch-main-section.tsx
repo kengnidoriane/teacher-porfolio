@@ -2,9 +2,9 @@ import React from 'react'
 
 function DevelopmentMainSection() {
   return (
-    <div>
+    <div className='m-auto max-w-lg py-4'>
         <h2>Launch of New Courses</h2>
-        <p></p>
+        <h3><b>Innovation Practicum</b> for First Yer students</h3>
     </div>
   )
 }

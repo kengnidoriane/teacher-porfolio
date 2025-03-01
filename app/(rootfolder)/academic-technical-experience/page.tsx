@@ -1,10 +1,11 @@
-import { SectionHeader } from "@/components/global"
+import { MainSection, SectionHeader } from "@/components/global"
 
 const AcademicTechnicalExperience  = () => {
   return (
     <>
     <SectionHeader title="Academic & Technical Experience" />
     {/* others sections */}
+    <MainSection/>
     </>
 
   )
